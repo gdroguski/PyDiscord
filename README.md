@@ -20,7 +20,9 @@ Yet another Discord ripoff in Python for fooling around with Django.
 
 If you just want to run it with default config for superuser replace command in `2.` with `python utils/super_super_env.py`
 
-Then you can create users, rooms
+Then you can create users, rooms.
+
+If you want to use this as is, with DB and all. Download the release, unzip and run `python manage.py runserver localhost:8000`
 
 ## How does it look with some users?
 ### Main
