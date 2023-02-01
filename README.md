@@ -22,7 +22,7 @@ If you just want to run it with default config for superuser replace command in 
 
 Then you can create users, rooms.
 
-If you want to use this as is, with DB and all. Download the release, unzip and run `python manage.py runserver localhost:8000`
+If you want to use this as is, with DB and all. Download the release, unzip and run points `1.` and `4.`
 
 ## How does it look with some users?
 ### Main
