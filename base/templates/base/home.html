@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="layout layout--3">
+        <div class="container">
+            <!-- Topics Start -->
+            {% include 'base/topics_component.html' %}
+            <!-- Topics End -->
+
+            <!-- Room List Start -->
+            <div class="roomList">
+                <div class="mobile-menu">
+                    <form action="{% url 'home' %}" method="get" class="header__search">
+                        <label>
+                            <svg viewBox="0 0 32 32">
+                                <use href="{% static "images/icons/search.svg" %}#search_icon"></use>
+                            </svg>
+                            <input name="q" placeholder="Search for posts"/>
+                        </label>
+                    </form>
+                    <div class="mobile-menuItems">
+                        <a class="btn btn--main btn--pill" href="{% url 'topics' %}">Browse Topics</a>
+                        <a class="btn btn--main btn--pill" href="{% url 'activity' %}">Recent Activities</a>
+                    </div>
+                </div>
+                <div class="roomList__header">
+                    <div>
+                        <h2>Room</h2>
+                        <p>{{ room_count }} Rooms available</p>
+                    </div>
+                    <a class="btn btn--main" href="{% url 'create-room' %}">
+                        <svg viewBox="0 0 32 32">
+                            <use href="{% static "images/icons/add.svg" %}#add_icon"></use>
+                        </svg>
+                        Create Conversation
+                    </a>
+                </div>
+                {% include 'base/feed_component.html' %}
+            </div>
+            <!-- Room List End -->
+
+            <!-- Activities Start -->
+            {% include 'base/activity_component.html' %}
+            <!-- Activities End -->
+        </div>
+    </main>
+{% endblock %}

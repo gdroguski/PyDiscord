@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="delete-item layout">
+        <div class="container">
+            <div class="layout__box">
+                <div class="layout__boxHeader">
+                    <div class="layout__boxTitle">
+                        <a href="{{ request.META.HTTP_REFERER }}">
+                            <svg viewBox="0 0 32 32">
+                                <use href="{% static "images/icons/arrow-left.svg" %}#arrow_left_icon"></use>
+                            </svg>
+                        </a>
+                        <h3>Back</h3>
+                    </div>
+                </div>
+                <div class="layout__body">
+                    <form class="form" method="post" action="">
+                        {% csrf_token %}
+                        <div class="form__group">
+                            <p>Are you sure you want to reset your Avatar?</p>
+                        </div>
+
+                        <div class="for__group">
+                            <input class="btn btn--main" type="submit" value="Confirm"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

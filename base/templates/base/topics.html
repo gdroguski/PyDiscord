@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="create-room layout">
+        <div class="container">
+            <div class="layout__box">
+                <div class="layout__boxHeader">
+                    <div class="layout__boxTitle">
+                        <a href="{% url 'home' %}">
+                            <svg viewBox="0 0 32 32">
+                                <use href="{% static "images/icons/arrow-left.svg" %}#arrow_left_icon"></use>
+                            </svg>
+                        </a>
+                        <h3>Browse Topics</h3>
+                    </div>
+                </div>
+
+                <div class="topics-page layout__body">
+                    <form action="" method="get" class="header__search">
+                        <label>
+                            <svg viewBox="0 0 32 32">
+                                <use href="{% static "images/icons/search.svg" %}#search_icon"></use>
+                            </svg>
+                            <input name="q" placeholder="Search for posts"/>
+                        </label>
+                    </form>
+
+                    <ul class="topics__list">
+                        <li>
+                            <a href="{% url 'topics' %}" class="active">All <span>{{ topics.count }}</span></a>
+                        </li>
+                        {% for topic in topics %}
+                            <li>
+                                <a href="{% url 'home' %}?q={{ topic.name }}">{{ topic.name }}
+                                    <span>{{ topic.room_set.count }}</span></a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
